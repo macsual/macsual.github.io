@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-JM">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta name="theme-color" content="#E0E0E0">
+        <title>Demo | UMP</title>
+        <meta name="description" content="The UAV Mission Planner GUI uses the Google Maps API with a clean interface to set up mission parameters.">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.red-light_blue.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                height: 100%;
+            }
+
+            dialog {
+                border-radius: 6px;
+            }
+
+            #customControls {
+                margin-bottom: 50px;
+            }
+
+            #another-one, #back {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <dialog id="modal1" class="mdl-dialog">
+            <h4 style="text-align: center;" class="mdl-dialog__title">Welcome</h4>
+            <div class="mdl-dialog__content">
+                <p>Begin by marking the bounds of the search space. Click on map to create the points that will identify the area.</p>
+                <p>Press <b>NEXT</b> after doing that.</p>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Got it</button>
+            </div>
+        </dialog>
+        <dialog id="modal2" class="mdl-dialog">
+            <h4 style="text-align: center;" class="mdl-dialog__title">Identify Obstacles</h4>
+            <div class="mdl-dialog__content">
+                <p>Now select the areas within the search space that the UAV should avoid. Like before, just click on the map to create points.</p>
+                <p>To add mutiple obstacles, press <b>ADD</b> after creating an obstacle.</p>
+                <p>When finished, press <b>NEXT</b> to proceed.</p>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button mdl-button--raised mdl-button--colored">OK</button>
+            </div>
+        </dialog>
+        <div id="map"></div>
+        <div id="customControls">
+            <button id="back" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Back</button>
+            <button id="another-one" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Add</button>
+            <button id="next" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Next</button>
+        </div>
+        <div class="mdl-snackbar mdl-js-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button type="button" class="mdl-snackbar__action"></button>
+        </div>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyAvIdc2wpcR7TOdxlGcyFPBKgwoCKpACOM"></script>
+        <script type="text/javascript" src="js/ump-demo.js"></script>
+    </body>
+</html>
